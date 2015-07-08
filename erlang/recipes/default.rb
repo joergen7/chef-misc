@@ -5,18 +5,14 @@
 # Copyright (c) 2015 Jörgen Brandt, All Rights Reserved.
 
 
-archive  = node.default.archive
-software = node.default.software
-bin      = "/usr/local/bin"
-
 # refresh package sources
-bash "apt-get_update" do
+bash "apt-get_update_upgrade" do
     code "apt-get update"
 end
 
 # directories
-directory archive
-directory software
+directory node.archive
+directory node.software
 
 # packages
 package "fop"
@@ -27,45 +23,44 @@ package "libssl-dev"
 package "libwxbase3.0-dev"
 package "libwxgtk3.0-dev"
 package "libxml2-utils"
-package "openjdk-7-jdk"
+package "openjdk-#{node.java.version}-jdk"
 package "unixodbc-dev"
 package "xsltproc"
 
 # erlang
-erlang_link = "http://www.erlang.org/download/otp_src_17.5.tar.gz"
-erlang_tar  = "#{archive}/#{File.basename( erlang_link )}"
-erlang_dir  = "#{software}/otp_src_17.5"
+erlang_tar  = "#{node.archive}/#{File.basename( node.erlang.link )}"
+erlang_dir  = "#{node.software}/otp_src_#{node.erlang.version}"
 
 remote_file erlang_tar do
     action :create_if_missing
-    source   erlang_link
+    source node.erlang.link
 end
 
 bash "extract_erlang" do
-    code     "tar xf #{erlang_tar} -C #{software}"
+    code "tar xf #{erlang_tar} -C #{node.software}"
     not_if "#{Dir.exists?( erlang_dir )}"
 end
 
 bash "configure_erlang" do
-    code     "./configure"
-    cwd      erlang_dir
+    code "./configure"
+    cwd erlang_dir
     not_if "#{File.exists?( "#{erlang_dir}/Makefile" )}"
 end
 
 bash "compile_erlang" do
-    code   "make"
-    cwd    erlang_dir
+    code "make"
+    cwd erlang_dir
     not_if "#{File.exists?( "#{erlang_dir}/bin/erl" )}"
 end
 
-link "#{bin}/erl" do
+link "#{node.bin}/erl" do
     to "#{erlang_dir}/bin/erl"
 end
 
-link "#{bin}/erlc" do
+link "#{node.bin}/erlc" do
     to "#{erlang_dir}/bin/erlc"
 end
 
-link "#{bin}/dialyzer" do
+link "#{node.bin}/dialyzer" do
     to "#{erlang_dir}/bin/dialyzer"
 end
