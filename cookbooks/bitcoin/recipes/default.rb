@@ -49,7 +49,7 @@ end
 bash "compile_db" do
   code <<-SCRIPT
 mkdir #{db_prefix}
-../dist/configure --enable-cxx --prefix=#{db_prefix}
+../dist/configure --disable-shared --enable-cxx --with-pic --prefix=#{db_prefix}
 make install
   SCRIPT
   cwd "#{db_dir}/build_unix"
