@@ -72,4 +72,9 @@ bash "compile_bitcoin" do
 make
   SCRIPT
   cwd bitcoin_dir
+  not_if "#{File.exists?( "#{bitcoin_dir}/src/qt/bitcoin-qt" )}"
+end
+
+link "#{node.bin}/bitcoin-qt" do
+    to "#{bitcoin_dir}/src/qt/bitcoin-qt"
 end
