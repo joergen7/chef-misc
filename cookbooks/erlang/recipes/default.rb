@@ -6,7 +6,7 @@
 
 
 # refresh package sources
-bash "apt-get_update_upgrade" do
+bash "apt-get_update" do
     code "apt-get update"
 end
 
