@@ -64,3 +64,7 @@ end
 link "#{node.bin}/dialyzer" do
     to "#{erlang_dir}/bin/dialyzer"
 end
+
+link "#{node.bin}/escript" do
+    to "#{erlang_dir}/bin/escript"
+end
