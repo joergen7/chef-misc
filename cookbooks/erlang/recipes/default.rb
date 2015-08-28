@@ -53,18 +53,8 @@ bash "compile_erlang" do
     not_if "#{File.exists?( "#{erlang_dir}/bin/erl" )}"
 end
 
-link "#{node.bin}/erl" do
-    to "#{erlang_dir}/bin/erl"
-end
-
-link "#{node.bin}/erlc" do
-    to "#{erlang_dir}/bin/erlc"
-end
-
-link "#{node.bin}/dialyzer" do
-    to "#{erlang_dir}/bin/dialyzer"
-end
-
-link "#{node.bin}/escript" do
-    to "#{erlang_dir}/bin/escript"
+bash "install_erlang" do
+    code "make install"
+    cwd erlang_dir
+    not_if "#{File.exists?( "/usr/local/bin/erl" )}"
 end
