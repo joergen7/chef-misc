@@ -50,3 +50,11 @@ end
 link "#{node.dir.bin}/bitcoin-qt" do
     to "#{bitcoin_dir}/src/qt/bitcoin-qt"
 end
+
+link "#{node.dir.bin}/bitcoind" do
+    to "#{bitcoin_dir}/src/bitcoind"
+end
+
+link "#{node.dir.bin}/bitcoin-cli" do
+    to "#{bitcoin_dir}/src/bitcoin-cli"
+end

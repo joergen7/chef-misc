@@ -33,6 +33,6 @@ mkdir #{node.db.prefix}
 make install
   SCRIPT
   cwd "#{node.db.dir}/build_unix"
-  not_if "#{File.exists?( "#{node.db.prefix}/Makefile" )}"
+  not_if "#{File.exists?( "#{node.db.dir}/build_unix/Makefile" )}"
 end
 
