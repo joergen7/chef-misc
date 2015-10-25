@@ -28,5 +28,5 @@ suites:
   - name: default
     run_list:
       - recipe[chef-misc::_common]
-      - recipe[chef-misc::rebar]
+      - recipe[chef-misc::default]
     attributes:
