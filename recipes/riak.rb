@@ -11,6 +11,9 @@ riak_githuburl = "https://github.com/basho/riak.git"
 # build dependencies
 include_recipe "chef-misc::erlang"
 
+# install required packages
+package "git"
+
 # create directories
 directory node.dir.software
 
