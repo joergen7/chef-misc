@@ -6,7 +6,7 @@
 
 getopt_githuburl = "https://github.com/jcomellas/getopt.git"
 getopt_vsn = "v0.8.2"
-getopt_dir = "#{node.dir.software}/getopt"
+getopt_dir = "#{node.dir.software}/getopt-0.8.2"
 
 include_recipe "chef-misc::rebar"
 
