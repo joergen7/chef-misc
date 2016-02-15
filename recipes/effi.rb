@@ -20,7 +20,7 @@ end
 bash "compile_effi" do
   code "rebar co"
   cwd effi_dir
-  not_if "#{File.exists?( "#{effi_dir}/ebin/effi.beam" )}"
+  # not_if "#{File.exists?( "#{effi_dir}/ebin/effi.beam" )}"
 end
 
 link "/usr/local/lib/erlang/lib/effi-0.1.0" do
