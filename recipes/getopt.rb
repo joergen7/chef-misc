@@ -11,7 +11,6 @@ getopt_dir = "#{node.dir.software}/getopt-0.8.2"
 include_recipe "chef-misc::rebar"
 
 git "git_clone_getopt" do
-  action :checkout
   repository getopt_githuburl
   destination getopt_dir
   revision getopt_vsn

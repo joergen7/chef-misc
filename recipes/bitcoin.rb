@@ -33,7 +33,6 @@ package "libevent-dev"
 
 
 git "git_clone_bitcoin" do
-  action :checkout
   repository bitcoin_githuburl
   destination bitcoin_dir
   revision bitcoin_vsn

@@ -18,7 +18,6 @@ directory node.dir.software
 
 # clone rebar github repository
 git "git_clone_rebar" do
-  action :checkout
   repository rebar_githuburl
   destination rebar_dir
   revision rebar_vsn
