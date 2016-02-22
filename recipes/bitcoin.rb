@@ -6,11 +6,11 @@
 
 
 
-include_recipe "chef-misc::db"
+include_recipe "chef-misc::berkeley-db"
 
 # bitcoin
 bitcoin_githuburl = "https://github.com/bitcoin/bitcoin.git"
-bitcoin_vsn = "v0.11.2"
+bitcoin_vsn = "v0.12.0"
 bitcoin_dir = "#{node.dir.software}/bitcoin"
 
 # directories
@@ -21,11 +21,13 @@ package "autoconf"
 package "git"
 package "libboost-all-dev"
 package "libprotobuf-dev"
-package "libqt4-dev"
+package "qttools5-dev"
+package "qttools5-dev-tools"
 package "libtool"
 package "miniupnpc"
 package "pkg-config"
 package "protobuf-compiler"
+package "libevent-dev"
 
 
 

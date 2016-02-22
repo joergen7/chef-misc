@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: chef-misc
-# Recipe:: db
+# Recipe:: berkeley-db
 #
 # Copyright (c) 2015 Jörgen Brandt, All Rights Reserved.
 
