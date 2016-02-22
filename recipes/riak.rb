@@ -19,6 +19,7 @@ directory node.dir.software
 
 # clone riak from git
 git "git_clone_riak" do
+  action :checkout
   repository riak_githuburl
   destination riak_dir
   revision riak_vsn
