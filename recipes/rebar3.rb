@@ -7,10 +7,13 @@
 include_recipe "chef-misc::erlang"
 
 
-rebar_githuburl = "https://github.com/rebar/rebar.git"
-rebar_vsn = "2.6.1"
-rebar_dir = "#{node.dir.software}/rebar"
+rebar_githuburl = "https://github.com/erlang/rebar3.git"
+rebar_vsn = "3.0.0"
+rebar_dir = "#{node.dir.software}/rebar3"
 
+
+# packages
+package "git"
 
 
 # directories
@@ -28,10 +31,10 @@ end
 bash "build_rebar" do
   code "./bootstrap"
   cwd rebar_dir
-  not_if "#{File.exists?( "#{rebar_dir}/rebar" )}"
+  not_if "#{File.exists?( "#{rebar_dir}/rebar3" )}"
 end
 
 # create link
-link "#{node.dir.bin}/rebar" do
-    to "#{rebar_dir}/rebar"
+link "#{node.dir.bin}/rebar3" do
+    to "#{rebar_dir}/rebar3"
 end

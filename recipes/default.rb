@@ -7,5 +7,5 @@
 
 include_recipe "chef-misc::bitcoin"
 include_recipe "chef-misc::erlang"
-include_recipe "chef-misc::rebar"
+include_recipe "chef-misc::rebar3"
 include_recipe "chef-misc::getopt"
