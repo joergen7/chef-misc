@@ -8,6 +8,7 @@ effi_githuburl = "https://github.com/joergen7/effi.git"
 effi_vsn = "master"
 effi_dir = "#{node.dir.software}/effi-0.1.0"
 
+include_recipe "chef-misc::rebar3"
 include_recipe "chef-misc::getopt"
 
 git "git_clone_effi" do
@@ -18,7 +19,7 @@ git "git_clone_effi" do
 end
 
 bash "compile_effi" do
-  code "rebar co"
+  code "rebar3 compile"
   cwd effi_dir
   # not_if "#{File.exists?( "#{effi_dir}/ebin/effi.beam" )}"
 end

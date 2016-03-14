@@ -8,7 +8,9 @@ getopt_githuburl = "https://github.com/jcomellas/getopt.git"
 getopt_vsn = "v0.8.2"
 getopt_dir = "#{node.dir.software}/getopt-0.8.2"
 
-include_recipe "chef-misc::rebar"
+include_recipe "chef-misc::rebar3"
+
+directory node.dir.software
 
 git "git_clone_getopt" do
   action :checkout
@@ -18,7 +20,7 @@ git "git_clone_getopt" do
 end
 
 bash "compile_getopt" do
-  code "rebar co"
+  code "rebar3 compile"
   cwd getopt_dir
   not_if "#{File.exists?( "#{getopt_dir}/ebin/getopt.beam" )}"
 end
