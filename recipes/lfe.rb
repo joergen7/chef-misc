@@ -8,6 +8,8 @@ lfe_githuburl = "https://github.com/rvirding/lfe.git"
 lfe_vsn = "0.10.1"
 lfe_dir = "#{node.dir.software}/lfe-#{lfe_vsn}"
 
+include_recipe "chef-misc::rebar"
+
 directory node.dir.software
 
 git "git_clone_lfe" do
