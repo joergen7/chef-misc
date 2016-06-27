@@ -16,3 +16,5 @@ bin/*
 .kitchen.local.yml
 
 files/eqcmini-2.01.0.zip
+
+Policyfile.lock.json

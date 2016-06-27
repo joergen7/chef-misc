@@ -6,8 +6,8 @@
 # Copyright (c) 2015 Jörgen Brandt, All Rights Reserved.
 
 
-java_vsn = "7"
-erlang_vsn = "18.3"
+java_vsn = "8"
+erlang_vsn = "19.0"
 erlang_link = "http://www.erlang.org/download/otp_src_#{erlang_vsn}.tar.gz"
 erlang_tar  = "#{node.dir.archive}/#{File.basename( erlang_link )}"
 erlang_dir  = "#{node.dir.software}/otp_src_#{erlang_vsn}"
