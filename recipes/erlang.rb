@@ -5,6 +5,7 @@
 #
 # Copyright (c) 2015 Jörgen Brandt, All Rights Reserved.
 
+require "open3"
 
 java_vsn = "8"
 erlang_vsn = "19.0"
@@ -55,5 +56,5 @@ end
 bash "install_erlang" do
     code "make install"
     cwd erlang_dir
-    not_if "#{File.exists?( "/usr/local/bin/erl" )}"
+    not_if "#{`erl -version 2>&1`.strip().end_with?( "emulator version 8.0" )}"
 end
