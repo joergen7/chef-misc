@@ -31,7 +31,7 @@ end
 bash "build_rebar" do
   code "./bootstrap"
   cwd rebar_dir
-  not_if "#{File.exists?( "#{rebar_dir}/rebar3" )}"
+  creates "#{rebar_dir}/rebar3"
 end
 
 # create link
