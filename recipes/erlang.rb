@@ -5,13 +5,13 @@
 #
 # Copyright (c) 2015 Jörgen Brandt, All Rights Reserved.
 
-require "open3"
-
-java_vsn = "8"
 erlang_vsn = "19.0"
 erlang_link = "http://www.erlang.org/download/otp_src_#{erlang_vsn}.tar.gz"
 erlang_tar  = "#{node.dir.archive}/#{File.basename( erlang_link )}"
 erlang_dir  = "#{node.dir.software}/otp_src_#{erlang_vsn}"
+
+# dependent recipes
+include_recipe "chef-misc::java"
 
 # directories
 directory node.dir.archive
@@ -26,7 +26,6 @@ package "libssl-dev"
 package "libwxbase3.0-dev"
 package "libwxgtk3.0-dev"
 package "libxml2-utils"
-package "openjdk-#{java_vsn}-jdk"
 package "unixodbc-dev"
 package "xsltproc"
 
