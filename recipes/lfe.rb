@@ -5,7 +5,7 @@
 # Copyright (c) 2016 Jörgen Brandt, All Rights Reserved.
 
 lfe_githuburl = "https://github.com/rvirding/lfe.git"
-lfe_vsn = "1.0"
+lfe_vsn = "1.1.1"
 lfe_dir = "#{node.dir.software}/lfe-#{lfe_vsn}"
 
 # include_recipe "chef-misc::rebar3"
