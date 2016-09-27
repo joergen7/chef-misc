@@ -20,7 +20,7 @@ package "git"
 directory node["dir"]["software"]
 
 # clone rebar github repository
-git "git_clone_rebar" do
+git "git_clone_rebar3" do
   action :checkout
   repository rebar_githuburl
   destination rebar_dir
@@ -28,7 +28,7 @@ git "git_clone_rebar" do
 end
 
 # build rebar
-bash "build_rebar" do
+bash "build_rebar3" do
   code "./bootstrap"
   cwd rebar_dir
   creates "#{rebar_dir}/rebar3"
