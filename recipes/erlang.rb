@@ -6,6 +6,7 @@
 # Copyright (c) 2015 Jörgen Brandt, All Rights Reserved.
 
 erlang_vsn = "19.1"
+emulator_vsn = "8.1"
 erlang_link = "http://www.erlang.org/download/otp_src_#{erlang_vsn}.tar.gz"
 erlang_tar  = "#{node["dir"]["archive"]}/#{File.basename( erlang_link )}"
 erlang_dir  = "#{node["dir"]["software"]}/otp_src_#{erlang_vsn}"
@@ -55,5 +56,5 @@ end
 bash "install_erlang" do
     code "make install"
     cwd erlang_dir
-    not_if "#{`erl -version 2>&1`.strip().end_with?( "emulator version 8.0" )}"
+    not_if "#{`erl -version 2>&1`.strip().end_with?( "emulator version #{emulator_vsn}" )}"
 end
