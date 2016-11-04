@@ -9,12 +9,12 @@ include_recipe "chef-misc::erlang"
 
 rebar_githuburl = "https://github.com/rebar/rebar.git"
 rebar_vsn = "2.6.4"
-rebar_dir = "#{node.dir.software}/rebar-#{rebar_vsn}"
+rebar_dir = "#{node["dir"]["software"]}/rebar-#{rebar_vsn}"
 
 
 
 # directories
-directory node.dir.software
+directory node["dir"]["software"]
 
 # clone rebar github repository
 git "git_clone_rebar" do
@@ -32,6 +32,6 @@ bash "build_rebar" do
 end
 
 # create link
-link "#{node.dir.bin}/rebar" do
+link "#{node["dir"]["bin"]}/rebar" do
     to "#{rebar_dir}/rebar"
 end
