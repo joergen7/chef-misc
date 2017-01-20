@@ -5,8 +5,8 @@
 #
 # Copyright (c) 2015 Jörgen Brandt, All Rights Reserved.
 
-erlang_vsn = "19.2"
-emulator_vsn = "8.2"
+erlang_vsn = node["erlang"]["vsn"]
+emulator_vsn = (erlang_vsn.to_f-11).to_s
 erlang_link = "http://www.erlang.org/download/otp_src_#{erlang_vsn}.tar.gz"
 erlang_tar  = "#{node["dir"]["archive"]}/#{File.basename( erlang_link )}"
 erlang_dir  = "#{node["dir"]["software"]}/otp_src_#{erlang_vsn}"

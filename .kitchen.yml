@@ -27,6 +27,7 @@ platforms:
 suites:
   - name: default
     run_list:
-      - recipe[chef-misc::_common]
       - recipe[chef-misc::default]
     attributes:
+      erlang:
+        vsn: "18.0"
