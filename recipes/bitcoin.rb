@@ -43,20 +43,8 @@ bash "compile_bitcoin" do
   code <<-SCRIPT
 ./autogen.sh
 ./configure CPPFLAGS="-I#{node["db"]["prefix"]}/include/ -O2" LDFLAGS="-L#{node["db"]["prefix"]}/lib/" --with-gui
-make
+make install
   SCRIPT
   cwd bitcoin_dir
   creates "#{bitcoin_dir}/src/qt/bitcoin-qt"
-end
-
-link "#{node["dir"]["bin"]}/bitcoin-qt" do
-  to "#{bitcoin_dir}/src/qt/bitcoin-qt"
-end
-
-link "#{node["dir"]["bin"]}/bitcoind" do
-  to "#{bitcoin_dir}/src/bitcoind"
-end
-
-link "#{node["dir"]["bin"]}/bitcoin-cli" do
-  to "#{bitcoin_dir}/src/bitcoin-cli"
 end
