@@ -20,6 +20,7 @@ directory node["dir"]["archive"]
 directory node["dir"]["software"]
 
 # packages
+package "autoconf"
 package "fop"
 package "libgtk-3-dev"
 package "libncurses5-dev"
