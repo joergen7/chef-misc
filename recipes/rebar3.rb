@@ -8,7 +8,7 @@ include_recipe "chef-misc::erlang"
 
 
 rebar_githuburl = "https://github.com/erlang/rebar3.git"
-rebar_vsn = "3.3.5"
+rebar_vsn = node["rebar3"]["vsn"]
 rebar_dir = "#{node["dir"]["software"]}/rebar3-#{rebar_vsn}"
 
 

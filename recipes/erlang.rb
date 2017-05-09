@@ -5,6 +5,7 @@
 #
 # Copyright (c) 2015 Jörgen Brandt, All Rights Reserved.
 
+erlang_githuburl = "https://github.com/erlang/otp.git"
 erlang_vsn = node["erlang"]["vsn"]
 emulator_vsn = (erlang_vsn.to_f-11).to_s
 erlang_link = "http://www.erlang.org/download/otp_src_#{erlang_vsn}.tar.gz"
@@ -30,15 +31,27 @@ package "libxml2-utils"
 package "unixodbc-dev"
 package "xsltproc"
 
+# remote_file erlang_tar do
+#     action :create_if_missing
+#     source erlang_link
+# end
+#
+# bash "extract_erlang" do
+#     code "tar xf #{erlang_tar} -C #{node["dir"]["software"]}"
+#     creates erlang_dir
+# end
 
-remote_file erlang_tar do
-    action :create_if_missing
-    source erlang_link
+git "git_clone_erlang" do
+  action :sync
+  repository erlang_githuburl
+  destination erlang_dir
+  revision "OTP-#{erlang_vsn}"
 end
 
-bash "extract_erlang" do
-    code "tar xf #{erlang_tar} -C #{node["dir"]["software"]}"
-    creates erlang_dir
+bash "autoconf_erlang" do
+    code "./otp_build autoconf"
+    cwd erlang_dir
+    creates "#{erlang_dir}/configure"
 end
 
 bash "configure_erlang" do
