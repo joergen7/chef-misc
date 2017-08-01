@@ -10,7 +10,7 @@ include_recipe "chef-misc::berkeley-db"
 
 # bitcoin
 bitcoin_githuburl = "https://github.com/bitcoin/bitcoin.git"
-bitcoin_vsn = "v0.13.1"
+bitcoin_vsn = "v0.14.2"
 bitcoin_dir = "#{node["dir"]["software"]}/bitcoin-#{bitcoin_vsn[1,7]}"
 
 # directories
