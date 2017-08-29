@@ -19,4 +19,4 @@ default["hd"]["dfs"]["datanode"]["data"]["dir"] = "/usr/local/hadoop_tmp/hdfs/da
 default["erlang"]["vsn"] = "20.0"
 
 # rebar3
-default["rebar3"]["vsn"] = "3.4.2"
+default["rebar3"]["vsn"] = "3.4.3"
