@@ -3,14 +3,26 @@
 # Cookbook Name:: chef-misc
 # Recipe:: erlang
 #
-# Copyright (c) 2015 Jörgen Brandt, All Rights Reserved.
+# Copyright 2015-2017 Jörgen Brandt
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
 
 erlang_githuburl = "https://github.com/erlang/otp.git"
 erlang_vsn = node["erlang"]["vsn"]
 emulator_vsn = (erlang_vsn.to_f-11).to_s
 erlang_link = "http://www.erlang.org/download/otp_src_#{erlang_vsn}.tar.gz"
 erlang_tar  = "#{node["dir"]["archive"]}/#{File.basename( erlang_link )}"
-erlang_dir  = "#{node["dir"]["software"]}/otp_src_#{erlang_vsn}"
+erlang_dir  = "#{node["dir"]["software"]}/otp-#{erlang_vsn}"
 
 # dependent recipes
 include_recipe "chef-misc::java"
@@ -31,16 +43,6 @@ package "libwxgtk3.0-dev"
 package "libxml2-utils"
 package "unixodbc-dev"
 package "xsltproc"
-
-# remote_file erlang_tar do
-#     action :create_if_missing
-#     source erlang_link
-# end
-#
-# bash "extract_erlang" do
-#     code "tar xf #{erlang_tar} -C #{node["dir"]["software"]}"
-#     creates erlang_dir
-# end
 
 git "git_clone_erlang" do
   action :sync

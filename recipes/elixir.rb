@@ -1,7 +1,6 @@
-# coding: utf-8
 #
 # Cookbook Name:: chef-misc
-# Recipe:: default
+# Recipe:: elixir
 #
 # Copyright 2015-2017 Jörgen Brandt
 #
@@ -17,13 +16,29 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-include_recipe "chef-misc::_common"
-include_recipe "chef-misc::berkeley-db"
-include_recipe "chef-misc::bitcoin"
-include_recipe "chef-misc::elixir"
+elixir_vsn = node["elixir"]["vsn"]
+elixir_githuburl = "https://github.com/elixir-lang/elixir.git"
+elixir_dir  = "#{node["dir"]["software"]}/elixir-#{elixir_vsn}"
+
 include_recipe "chef-misc::erlang"
-include_recipe "chef-misc::hadoop"
-include_recipe "chef-misc::java"
-include_recipe "chef-misc::lfe"
-include_recipe "chef-misc::rebar"
-include_recipe "chef-misc::rebar3"
+
+directory node["dir"]["software"]
+
+git "git_clone_elixir" do
+  action :sync
+  repository elixir_githuburl
+  destination elixir_dir
+  revision "v#{elixir_vsn}"
+end
+
+bash "compile_elixir" do
+    code "make"
+    cwd elixir_dir
+    creates "#{elixir_dir}/bin/elixir"
+end
+
+bash "install_elixir" do
+    code "make install"
+    cwd elixir_dir
+    not_if "#{`elixir -v 2>&1`.strip().end_with?( "Elixir #{elixir_vsn}" )}"
+end
