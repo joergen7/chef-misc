@@ -20,10 +20,8 @@ lfe_githuburl = "https://github.com/rvirding/lfe.git"
 lfe_vsn = node["lfe"]["vsn"]
 lfe_dir = "#{node["dir"]["software"]}/lfe-#{lfe_vsn}"
 
-# include_recipe "chef-misc::rebar3"
 include_recipe "chef-misc::erlang"
 
-package "git"
 package "pandoc"
 
 directory node["dir"]["software"]
