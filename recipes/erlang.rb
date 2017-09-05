@@ -49,7 +49,6 @@ git "git_clone_erlang" do
   repository erlang_githuburl
   destination erlang_dir
   revision "OTP-#{erlang_vsn}"
-  timeout 2400
 end
 
 bash "autoconf_erlang" do
