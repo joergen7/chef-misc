@@ -1,7 +1,7 @@
-name "chef-misc"
-maintainer "Jörgen Brandt"
-maintainer_email "brandjoe@hu-berlin.de"
-license 'all_rights'
-description 'Installs/Configures chef-misc'
-long_description 'Installs/Configures chef-misc'
+name 'chef-misc'
+maintainer 'Jörgen Brandt'
+maintainer_email 'joergen.brandt@onlinehome.de'
+license 'Apache 2.0'
+description 'Miscellaneous recipes around the Erlang ecosystem.'
+long_description 'Miscellaneous recipes around the Erlang ecosystem.'
 version '0.1.0'

@@ -1,5 +1,5 @@
 # chef-misc
-Miscellaneous Chef cookbooks
+###### Miscellaneous recipes around the Erlang ecosystem.
 
 ## Applying the cookbooks
 
