@@ -22,7 +22,7 @@ default["erlang"]["vsn"] = "20.0"
 default["rebar3"]["vsn"] = "3.4.3"
 
 # lfe
-default["lfe"]["vsn"] = "1.3"
+default["lfe"]["vsn"] = "1.2.1"
 
 # elixir
 default["elixir"]["vsn"] = "1.5.1"
