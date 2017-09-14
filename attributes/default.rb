@@ -6,6 +6,9 @@ default["dir"]["bin"]      = "/usr/local/bin"
 default["db"]["dir"]    = "#{default["dir"]["software"]}/db-4.8.30"
 default["db"]["prefix"] = "#{default["db"]["dir"]}/build_unix/build"
 
+# bitcoin
+default["bitcoin"]["vsn"] = "0.15.0"
+
 # java
 default["java"]["vsn"]  = "8"
 default["java"]["home"] = "/usr/lib/jvm/java-#{default["java"]["vsn"]}-openjdk-amd64"
