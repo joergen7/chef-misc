@@ -20,7 +20,7 @@ include_recipe "chef-misc::erlang"
 
 
 rebar_githuburl = "https://github.com/rebar/rebar.git"
-rebar_vsn = "2.6.4"
+rebar_vsn = node["rebar"]["vsn"]
 rebar_dir = "#{node["dir"]["software"]}/rebar-#{rebar_vsn}"
 
 

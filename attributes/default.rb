@@ -6,23 +6,31 @@ default["dir"]["bin"]      = "/usr/local/bin"
 default["db"]["dir"]    = "#{default["dir"]["software"]}/db-4.8.30"
 default["db"]["prefix"] = "#{default["db"]["dir"]}/build_unix/build"
 
+# bitcoin
+default["bitcoin"]["vsn"] = "v0.14.2"
+
 # java
 default["java"]["vsn"]  = "8"
 default["java"]["home"] = "/usr/lib/jvm/java-#{default["java"]["vsn"]}-openjdk-amd64"
 
 # hadoop
+default["hd"]["vsn"] = "3.0.0"
 default["hd"]["dfs"]["namenode"]["name"]["dir"] = "/usr/local/hadoop_tmp/hdfs/namenode"
 default["hd"]["dfs"]["datanode"]["data"]["dir"] = "/usr/local/hadoop_tmp/hdfs/datanode"
 
-
 # erlang
-default["erlang"]["vsn"] = "20.0"
+default["erlang"]["vsn"] = "20.3.1"
+
+# rebar
+default["rebar"]["vsn"] = "2.6.4"
 
 # rebar3
-default["rebar3"]["vsn"] = "3.4.3"
+default["rebar3"]["vsn"] = "3.5.0"
 
 # lfe
-default["lfe"]["vsn"] = "1.2.1"
+# default["lfe"]["vsn"] = "1.2.1"
+default["lfe"]["vsn"] = "1.3"
 
 # elixir
-default["elixir"]["vsn"] = "1.5.1"
+default["elixir"]["vsn"] = "1.6.3"
+
