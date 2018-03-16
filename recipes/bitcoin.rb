@@ -23,7 +23,7 @@ include_recipe "chef-misc::berkeley-db"
 # bitcoin
 bitcoin_githuburl = "https://github.com/bitcoin/bitcoin.git"
 bitcoin_vsn = node["bitcoin"]["vsn"]
-bitcoin_dir = "#{node["dir"]["software"]}/bitcoin-#{bitcoin_vsn[1,7]}"
+bitcoin_dir = "#{node["dir"]["software"]}/bitcoin-#{bitcoin_vsn}"
 
 # directories
 directory node["dir"]["software"]
@@ -48,7 +48,7 @@ git "git_clone_bitcoin" do
   action :checkout
   repository bitcoin_githuburl
   destination bitcoin_dir
-  revision bitcoin_vsn
+  revision "v#{bitcoin_vsn}"
 end
 
 bash "compile_bitcoin" do

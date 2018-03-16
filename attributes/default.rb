@@ -7,7 +7,7 @@ default["db"]["dir"]    = "#{default["dir"]["software"]}/db-4.8.30"
 default["db"]["prefix"] = "#{default["db"]["dir"]}/build_unix/build"
 
 # bitcoin
-default["bitcoin"]["vsn"] = "v0.14.2"
+default["bitcoin"]["vsn"] = "0.16.0"
 
 # java
 default["java"]["vsn"]  = "8"
