@@ -31,28 +31,33 @@ include_recipe "chef-misc::java"
 # directories
 directory node["dir"]["archive"]
 directory node["dir"]["software"]
-  
-
-bash "nn_dir" do
-  code "mkdir -p #{node["hd"]["dfs"]["namenode"]["name"]["dir"]}"
-  user hd_user
-  creates node["hd"]["dfs"]["namenode"]["name"]["dir"]
-end
-
-bash "dn_dir" do
-  code "mkdir -p #{node["hd"]["dfs"]["datanode"]["data"]["dir"]}"
-  user hd_user
-  creates node["hd"]["dfs"]["datanode"]["data"]["dir"]
-end
 
 # create hadoop group
 group hd_group
 
 # create hadoop user
 user hd_user do
-  group    hd_group
-  password hd_passwd
+  group       hd_group
+  password    hd_passwd
+  manage_home true
 end
+
+directory node["hd"]["dfs"]["namenode"]["name"]["dir"] do
+  owner hd_user
+  group hd_group
+  mode 0755
+  action :create
+  recursive true
+end
+
+directory node["hd"]["dfs"]["datanode"]["data"]["dir"] do
+  owner hd_user
+  group hd_group
+  mode 0755
+  action :create
+  recursive true
+end
+
 
 # generate ssh key
 bash "generate_ssh_key" do

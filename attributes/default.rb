@@ -28,8 +28,7 @@ default["rebar"]["vsn"] = "2.6.4"
 default["rebar3"]["vsn"] = "3.5.0"
 
 # lfe
-# default["lfe"]["vsn"] = "1.2.1"
-default["lfe"]["vsn"] = "1.3"
+default["lfe"]["vsn"] = "1.2.1"
 
 # elixir
 default["elixir"]["vsn"] = "1.6.3"
